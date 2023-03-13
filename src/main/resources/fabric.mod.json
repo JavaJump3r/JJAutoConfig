@@ -1,36 +1,33 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "jjautoconfig",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "JJAutoConfig",
+  "description": "AutoConfig mod for Javajumper's mods",
   "authors": [
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://javajump3r.github.io/",
+    "sources": "https://github.com/JavaJump3r/JJAutoConfig"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GPL-v3",
+  "icon": "assets/jjautoconfig/icon.png",
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
-    ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.14.14",
     "fabric-api": "*",
     "minecraft": "~1.19.3",
-    "java": ">=17"
+    "java": ">=17",
+    "yet-another-config-lib" : ">=2.2.0"
   },
   "suggests": {
     "another-mod": "*"
