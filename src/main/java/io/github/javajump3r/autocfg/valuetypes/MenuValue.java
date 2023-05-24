@@ -3,7 +3,7 @@ package io.github.javajump3r.autocfg.valuetypes;
 
 import dev.isxander.yacl.api.Controller;
 import dev.isxander.yacl.api.Option;
-import io.github.javajump3r.autocfg.ClassDataContainer;
+import io.github.javajump3r.autocfg.SerializerContainer;
 import io.github.javajump3r.autocfg.Configurable;
 import io.github.javajump3r.autocfg.FieldValue;
 
@@ -13,7 +13,7 @@ public abstract class MenuValue{
     private String fieldPath;
     public abstract Class getTarget();
 
-    public  MenuValue(String translationKey, String fieldPath, FieldValue value, Configurable metadata, ClassDataContainer classDataContainer)
+    public  MenuValue(String translationKey, String fieldPath, FieldValue value, Configurable metadata, SerializerContainer classDataContainer)
     {
         this.value = value;
         this.translationKey = translationKey;

@@ -6,14 +6,14 @@ import io.github.javajump3r.autocfg.valuetypes.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClassDataContainer {
-    public ClassDataContainer(){
+public class SerializerContainer {
+    public SerializerContainer(){
         classData = new HashMap<>();
-        registerMenuValueOfClass(new ClassData<>(int.class, b -> Integer.parseInt(b), IntRangeMenuValue::new));
-        registerMenuValueOfClass(new ClassData<>(double.class, b -> Double.parseDouble(b), DoubleRangeMenuValue::new));
+        registerMenuValueOfClass(new ClassSerializer<>(int.class, b -> Integer.parseInt(b), IntRangeMenuValue::new));
+        registerMenuValueOfClass(new ClassSerializer<>(double.class, b -> Double.parseDouble(b), DoubleRangeMenuValue::new));
         //registerMenuValueOfClass(new ClassData<>(float.class, b -> (float)Double.parseDouble(b),DoubleRangeMenuValue::new));
-        registerMenuValueOfClass(new ClassData<>(String.class, b -> b, StringMenuValue::new));
-        registerMenuValueOfClass(new ClassData<>(boolean.class, b -> b.equals("true"), BooleanMenuValue::new));
+        registerMenuValueOfClass(new ClassSerializer<>(String.class, b -> b, StringMenuValue::new));
+        registerMenuValueOfClass(new ClassSerializer<>(boolean.class, b -> b.equals("true"), BooleanMenuValue::new));
     }
     public Object parseObject(Class objectClass, String string)
     {
@@ -48,8 +48,8 @@ public class ClassDataContainer {
             return new EnumMenuValue<>(translationKey,path,value,metaData,this);
         }
     }
-    public Map<Class,ClassData> classData;
-    public void registerMenuValueOfClass(ClassData data)
+    public Map<Class, ClassSerializer> classData;
+    public void registerMenuValueOfClass(ClassSerializer data)
     {
         classData.put(data.targetClass,data);
     }

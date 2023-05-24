@@ -23,12 +23,15 @@ public class ConfigGenerator {
     private String configName;
     private Translation translation;
     private Logger LOGGER = LoggerFactory.getLogger("ConfigGenerator");
-    private ClassDataContainer serializationDataContainer;
+    private SerializerContainer serializerContainer;
+    public SerializerContainer getSerializerContainer(){
+        return serializerContainer;
+    }
     public ConfigGenerator(String configName){
         this.configName = configName;
         configFile = FabricLoader.getInstance().getConfigDir().resolve(configName+".json").toFile();
         translation = new Translation(configName);
-        this.serializationDataContainer = new ClassDataContainer();
+        this.serializerContainer = new SerializerContainer();
     }
     private Set<Class> configurableClasses = new HashSet<>();
     public void addClassToConfig(Class c){
@@ -80,7 +83,7 @@ public class ConfigGenerator {
                     else {
                         translationKey = fieldPath;
                     }
-                    MenuValue element = serializationDataContainer.createMenuValueByClass(fieldType,translationKey,fieldPath,new StaticFieldValue(field),fieldMetadata);
+                    MenuValue element = serializerContainer.createMenuValueByClass(fieldType,translationKey,fieldPath,new StaticFieldValue(field),fieldMetadata);
                     list.add(element);
                 }
             }
@@ -133,7 +136,7 @@ public class ConfigGenerator {
                     try{
                         var field = foundType.getField(fieldName);
                         var fieldType = field.getType();
-                        field.set(null, serializationDataContainer.parseObject(fieldType,fieldValue));
+                        field.set(null, serializerContainer.parseObject(fieldType,fieldValue));
                     }
                     catch (NoSuchFieldException e){
                         LOGGER.info("no field with name "+fieldName+" found, ignoring");

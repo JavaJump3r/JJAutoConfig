@@ -5,7 +5,7 @@ import io.github.javajump3r.autocfg.valuetypes.MenuValue;
 
 import java.util.List;
 
-public class Category {
+class Category {
     public String categoryTranslationKey;
     public List<MenuValue> fields;
     public Category(String categoryTranslationKey,List<MenuValue> values)

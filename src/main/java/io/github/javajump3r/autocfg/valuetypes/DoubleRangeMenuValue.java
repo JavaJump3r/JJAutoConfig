@@ -10,7 +10,7 @@ import io.github.javajump3r.autocfg.FieldValue;
 
 public class DoubleRangeMenuValue extends RangeMenuValue {
 
-    public DoubleRangeMenuValue(String translationKey, String path, FieldValue value, Configurable metadata, ClassDataContainer classDataContainer) {
+    public DoubleRangeMenuValue(String translationKey, String path, FieldValue value, Configurable metadata, SerializerContainer classDataContainer) {
         super(translationKey,path, value, metadata, classDataContainer);
     }
 

@@ -4,13 +4,13 @@ import dev.isxander.yacl.api.Controller;
 import dev.isxander.yacl.api.Option;
 import dev.isxander.yacl.gui.controllers.slider.IntegerSliderController;
 import dev.isxander.yacl.gui.controllers.string.number.IntegerFieldController;
-import io.github.javajump3r.autocfg.ClassDataContainer;
+import io.github.javajump3r.autocfg.SerializerContainer;
 import io.github.javajump3r.autocfg.Configurable;
 import io.github.javajump3r.autocfg.FieldValue;
 
 public class IntRangeMenuValue extends RangeMenuValue{
 
-    public IntRangeMenuValue(String translationKey, String path, FieldValue value, Configurable metaData, ClassDataContainer classDataContainer) {
+    public IntRangeMenuValue(String translationKey, String path, FieldValue value, Configurable metaData, SerializerContainer classDataContainer) {
         super(translationKey, path, value, metaData, classDataContainer);
     }
 

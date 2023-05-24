@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
 
-public class FileReadWrite {
+class FileReadWrite {
 
     public static void write(File file, String text) {
         try{
